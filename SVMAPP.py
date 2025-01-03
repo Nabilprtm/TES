@@ -3,8 +3,11 @@ import pickle
 import numpy as np
 
 # Memuat semua model
-with open('model_svm.pkl', 'rb') as f:
-    model_SVM = pickle.load(f)
+try:
+    with open('svmfish.pkl', 'rb') as f:
+        model_SVM = pickle.load(f)
+except Exception as e:
+    st.error(f"Error loading model: {e}")
 
 # Judul Aplikasi
 st.title('Prediksi Spesies Ikan')
